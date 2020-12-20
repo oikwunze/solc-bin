@@ -32,6 +32,8 @@ jobs:
           repository: 'ethereum/solidity'
           path: 'solidity/'
           fetch-depth: 0
+          # TMP: This action needs prepare_report.py/.js from my yet unmerged PR in Solidity repo
+          ref: more-features-in-prepare-report
 
       - uses: actions/checkout@v2
         with:
