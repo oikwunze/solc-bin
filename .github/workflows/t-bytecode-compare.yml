@@ -111,7 +111,8 @@ jobs:
                   yul_optimizer_flags+=(--force-no-optimize-yul)
                 fi
 
-                "${base_dir}/scripts/prepare_report.py" "./${binary_name}" \
+                # TMP:
+                time "${base_dir}/scripts/prepare_report.py" "./${binary_name}" \
                   --interface cli \
                   --smt-use strip-pragmas \
                   --report-file "${base_dir}/reports/report-${binary_name}.txt" \
