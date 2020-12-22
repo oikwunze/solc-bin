@@ -84,6 +84,11 @@ jobs:
           for binary_name in $platform_binaries; do
             solidity_version=$(echo "$binary_name" | sed -n -E 's/^(solc|soljson)-'${PLATFORM}'-v([0-9.]+)\+commit.+$/\2/p')
 
+            # TMP: Emscripten version of 0.4.11 crashes and Linux one reports a wrong commit. Skip it for now.
+            if [[ $solidity_version == 0.4.11 ]]; then
+              continue
+            fi
+
             if echo "$modified_release_versions" | grep -x "$solidity_version"; then
               echo "Binary ${binary_name} matches the modified version ${solidity_version}"
 
